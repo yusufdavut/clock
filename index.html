@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Clock</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="wrapper">               
+            <div class="clock">
+                <div class="top">
+                    <div class="t1 btn"></div>
+                    <div class="t2 btn"></div>
+                    <div class="t3 btn"></div>
+                </div>
+                <div class="inside">
+                    <div class="hour screen"></div>
+                    <div class="minute screen"></div>
+                </div>
+            </div>
+        </div> 
+        <script>
+            let hour = document.querySelector('.hour');
+            let minute = document.querySelector('.minute');
+
+            function refreshTime(){
+                window.requestAnimationFrame(refreshTime);
+                let d = new Date();
+                let hr = d.getHours();
+                let mins = d.getMinutes();
+                hour.innerText = hr < 10 ? `0${hr}` : hr;
+                minute.innerText = mins < 10 ? `0${mins}` : mins;
+            } 
+            refreshTime(); 
+        </script>
+    </body>
+</html> 
